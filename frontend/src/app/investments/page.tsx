@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import {
   Container,
   Typography,
@@ -29,6 +30,7 @@ interface MutualFund {
 const ITEMS_PER_PAGE = 20;
 
 export default function InvestmentsPage() {
+  const router = useRouter();
   const [mutualFunds, setMutualFunds] = useState<MutualFund[]>([]);
   const [filteredFunds, setFilteredFunds] = useState<MutualFund[]>([]);
   const [loading, setLoading] = useState(true);
@@ -242,7 +244,7 @@ export default function InvestmentsPage() {
                         fullWidth
                         startIcon={<TrendingUp />}
                         onClick={() => {
-                          window.open(`https://api.mfapi.in/mf/${fund.schemeCode}`, '_blank');
+                          router.push(`/investments/${fund.schemeCode}`);
                         }}
                       >
                         View Details
