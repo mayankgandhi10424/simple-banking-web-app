@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import MuiThemeProvider from "@/components/ThemeProvider";
+import Header from "@/components/Header";
 
 export const metadata: Metadata = {
   title: "Simple Banking Web App",
@@ -15,6 +16,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <MuiThemeProvider>
+          <Header />
           {children}
         </MuiThemeProvider>
       </body>
